@@ -72,3 +72,16 @@ print clf
 plt.scatter(X, y)
 plt.scatter(X, y_predict, color = "r")
 plt.show()
+
+n_samples, n_features = 10, 5
+np.random.seed(0)
+y = np.random.randn(n_samples)
+X = np.random.randn(n_samples, n_features)
+clf = Ridge(alpha=0.0001)
+clf.fit(X, y)
+print clf.coef_
+print clf.intercept_
+
+theta = np.array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1])
+theta = gradient_descent(X.shape[0], X, y, theta, final_alpha, iterations)
+print theta
