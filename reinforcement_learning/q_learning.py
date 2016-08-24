@@ -10,6 +10,7 @@ print grid_world
 q_matrix = np.zeros((6, 4))
 current_state = 0
 eta = 0.9
+alpha = 0.5
 
 def next_state_(current_state, current_action):
   # 0 -> left, 1 -> down , 2 -> right, 3 -> up 
@@ -66,6 +67,6 @@ while True:
     elif next_state == -1:
       continue
     max_entry = max(q_matrix[next_state, :])
-    q_matrix[current_state, current_action] = reward + eta * max_entry
+    q_matrix[current_state, current_action] = q_matrix[current_state, current_action] + alpha*(reward + eta * max_entry - q_matrix[current_state, current_action])
     current_state = next_state
     print(q_matrix)

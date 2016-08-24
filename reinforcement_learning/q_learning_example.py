@@ -67,4 +67,4 @@ while True:
     q_matrix[current_state, current_action] = reward + eta * max_entry
     current_state = next_state
     print(q_matrix)
-    time.sleep(1)
+    #time.sleep(1)
