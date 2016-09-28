@@ -3,6 +3,7 @@ import numpy as np
 class LinearRegression:
           def __init__(self, data, labels, learning_rate):
               self.model = None
+              data = (data - np.mean(data,  axis=0))/np.std(data, axis=0)
               self.X = np.vstack((np.ones(data.shape[1]).T, np.array(data))).T
               self.labels = labels
               self.theta = np.random.rand(self.X.shape[1])
